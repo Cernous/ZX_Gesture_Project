@@ -10,15 +10,16 @@
 *
 ***************************************************************************************/ 
 #include "mcc_generated_files/mcc.h"
-
+#include "ZxGesture.h"
+#include "uart2.h"
 int main(void)
 {
     SYSTEM_Initialize();          // initialize the device
+    UART2_Initialize(); 
     I2C1_Initialize(400);
     while (1)
     {
-        
+        ZxAction(); 
     }
-
     return -1;
 }

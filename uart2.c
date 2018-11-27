@@ -72,7 +72,7 @@ void outString(const char* psz_s)
 {
 	// implement function to transmit a string via UART2
     int i = 0;
-    outChar('\n');
+    //outChar('\n');
     while(psz_s[i] != '\0')
     {
         outChar(psz_s[i]);
