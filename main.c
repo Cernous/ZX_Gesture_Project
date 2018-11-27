@@ -16,11 +16,10 @@ int main(void)
 {
     SYSTEM_Initialize();          // initialize the device
     UART2_Initialize(); 
+    I2C1_Initialize(400);
     while (1)
     {
-        ZxAction();
-        
+        ZxAction(); 
     }
-
     return -1;
 }
