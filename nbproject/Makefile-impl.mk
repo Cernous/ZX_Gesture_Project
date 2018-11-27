@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ZX_Gesture_Project.X
+PROJECTNAME=ZX_Gesture_Project
 
 # Active Configuration
 DEFAULTCONF=default
