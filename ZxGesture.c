@@ -3,22 +3,47 @@
 * File: ZxGesture.c
 *   Description -   
 *
-* Version           Date                  Details
+* Version   Author          Date            Details
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* 1.0.0             11/27/2018            Created the file.
+* 1.0.0     Emily Cvejic    11/27/2018      Created the file.
+* 1.0.1     Emily Cvejic    11/28/2018      Worked on functions ZxGesture, ZxAction, 
+*                                           ZxReadSpeed and ChaserDelay. 
 *
 ***************************************************************************************/ 
 #include "ZxGesture.h"
 #define ZXADDR  (0x20)
 #define DRCFG   (0x02)
 #define DRE     (0x01)
+#define FCY     16000000
 #include "uart2.h"
+#include "i2c1.h"
 #include "xc.h"
 #include <string.h>
 
 static enum {ZX_IDLE=0, ZX_R_SWIPE, ZX_L_SWIPE, ZX_UP_SWIPE} state=ZX_L_SWIPE;
-static int GestureSpeed, Speed, Delay;
+static int GestureSpeed, Speed, Delay, Gesture;
 char buffer[50];
+
+
+/*************************************************************
+* Function  Name    - char ZxGesture(void)
+*           purpose - Polls for the status register to change.
+*                     returns the gesture value.
+*           author  - Emily Cvejic
+**************************************************************/
+char ZxGesture(void){
+    while((ZXGesture_ReadByte(0x00) & 0x1C) == 0) __delay32(FCY/3);
+    Gesture = ZXGesture_ReadByte(0x0c);
+    sprintf(buffer, "0x%x\n\r", Gesture);
+    outString(buffer);
+    return Gesture;
+}
+
+/*****************
+* Function Name     - void ZxAction(void)
+*          Purpose  - 
+* 
+******************/
 void ZxAction(void){
     switch(state){
         case ZX_IDLE: 
@@ -29,7 +54,6 @@ void ZxAction(void){
             Delay=ChaserDelay();
             sprintf(buffer,"Right Swipe Detected    Speed Value: %d    Delay Chaser: %dms\r", Speed, Delay);
             outString(buffer);
-            
             break; 
         case ZX_L_SWIPE:
             Speed=ZxReadSpeed();
@@ -51,8 +75,8 @@ int ZxReadSpeed(){
     return GestureSpeed;
 }
 
-int ChaserDelay(){
-        switch(GestureSpeed){
+int ChaserDelay(void){
+    switch(GestureSpeed){
         case 1: 
             return 500;
         case 2:
@@ -74,6 +98,7 @@ int ChaserDelay(){
         case 10:
             return 50;
     }
+    return 0;
 }
 
 
@@ -88,24 +113,20 @@ void ZXGesture_Initialize(void)
     
 }
 
-void ZXGesture_WriteByte(INT16 regAddr, char WRval)
+void ZXGesture_WriteByte(int regAddr, char WRval)
 {
     //Writes a byte to the device
-    char data_write[3];
-    data_write[0] = (regAddr >> 8) & 0xFF;; // MSB of register address
-    data_write[1] = regAddr & 0xFF;         // LSB of register address
-    data_write[2] = WRval & 0xFF;
-    writeNI2C1(ZXADDR, data_write, 3);
+    char data_write[2];
+    data_write[0] = regAddr;
+    data_write[1] = WRval;
+    writeNI2C1(ZXADDR, data_write, 2);
 }
 
-char ZXGesture_ReadByte(INT16 regAddr)
+char ZXGesture_ReadByte(int regAddr)
 {
     //Reads a byte to the device
-    char data_write[2];
     char data_read[1];
-    data_write[0] = (regAddr >> 8) & 0xFF; // MSB of register address
-    data_write[1] = regAddr & 0xFF;        // LSB of register address
-    writeNI2C1(ZXADDR, data_write, 2);
+    write1I2C1(ZXADDR, regAddr);
     read1I2C1(ZXADDR, data_read);
     return data_read[0];
 }
