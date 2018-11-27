@@ -15,7 +15,7 @@
 #include "uart2.h"
 
 #define FCY 16000000   // Fcy = 16MHz
-#define CALC 38  //(FCY / (uiSpeed_Khz * 1000)) - (FCY / 10000000) - 1
+#define CALC 38  
 
 /*
     Operation: Perform an I2C initialization.
@@ -27,7 +27,7 @@ void I2C1_Initialize(unsigned int uiSpeed_Khz)
 {
     // Baud Rate Generator Value 
 	// **enter your code for I2C1BRG**
-    I2C1BRG = CALC;
+    I2C1BRG = (FCY / (uiSpeed_Khz * 1000ull)) - (FCY / 10000000ul) - 1;
     
 	// Initialiaze the I2C1 Peripherial for Master Mode,
 	// 7-bit Slave Address and Slew Rate Control Disabled,
