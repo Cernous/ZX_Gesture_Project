@@ -9,13 +9,12 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-typedef signed short int    INT16;
 void ZxAction(void);
 int ZxReadSpeed(void);
 int ChaserDelay(void);
 void ZXGesture_Initialize(void);
-void ZXGesture_ReadByte(INT16 regAddr);
-void ZXGesture_WriteByte(INT16 regAddr, char WRval);
+char ZXGesture_ReadByte(char regAddr);
+void ZXGesture_WriteByte(char regAddr, char WRval);
 
 #endif	/* ZXGESTURE_H */
 

@@ -14,6 +14,7 @@
 #define ZXADDR  (0x20)
 #define DRCFG   (0x02)
 #define DRE     (0x01)
+#define STATUS  0x00
 #define FCY     16000000
 #include "uart2.h"
 #include "i2c1.h"
@@ -21,7 +22,8 @@
 #include <string.h>
 
 static enum {ZX_IDLE=0, ZX_R_SWIPE, ZX_L_SWIPE, ZX_UP_SWIPE} state=ZX_L_SWIPE;
-static int GestureSpeed, Speed, Delay, Gesture;
+static int GestureSpeed, Speed, Delay;
+static char Gesture, Xcoor, Zcoor;
 char buffer[50];
 
 
@@ -32,10 +34,13 @@ char buffer[50];
 *           author  - Emily Cvejic
 **************************************************************/
 char ZxGesture(void){
-    while((ZXGesture_ReadByte(0x00) & 0x1C) == 0) __delay32(FCY/3);
-    Gesture = ZXGesture_ReadByte(0x0c);
-    sprintf(buffer, "0x%x\n\r", Gesture);
+    __delay32(FCY/10);
+    Xcoor = ZXGesture_ReadByte(0x00);
+//    Zcoor = ZXGesture_ReadByte(0x00);
+    sprintf(buffer, "X coordinate: 0x%x\n\r", Xcoor);
     outString(buffer);
+//    sprintf(buffer, " Z coordinate: 0x%x\r\r", Zcoor);
+//    outString(buffer);
     return Gesture;
 }
 
@@ -104,16 +109,15 @@ int ChaserDelay(void){
 
 void ZXGesture_Initialize(void)
 {
-    //0x02 - DRCFG - Data Ready Config
-    //10000001 - 0x81 - 
-    ZXGesture_WriteByte(DRCFG, 0x81);
     //0x01 - DRE
     //00111111 - 0x3F - 
     ZXGesture_WriteByte(DRE, 0x3F);
-    
+    //0x02 - DRCFG - Data Ready Config
+    //10000001 - 0x81 - 
+    ZXGesture_WriteByte(DRCFG, 0x81);
 }
 
-void ZXGesture_WriteByte(int regAddr, char WRval)
+void ZXGesture_WriteByte(char regAddr, char WRval)
 {
     //Writes a byte to the device
     char data_write[2];
@@ -122,12 +126,12 @@ void ZXGesture_WriteByte(int regAddr, char WRval)
     writeNI2C1(ZXADDR, data_write, 2);
 }
 
-char ZXGesture_ReadByte(int regAddr)
+char ZXGesture_ReadByte(char regAddr)
 {
     //Reads a byte to the device
-    char data_read[1];
+    char data_read;
     write1I2C1(ZXADDR, regAddr);
     read1I2C1(ZXADDR, data_read);
-    return data_read[0];
+    return data_read;
 }
 

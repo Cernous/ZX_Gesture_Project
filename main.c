@@ -19,7 +19,8 @@ int main(void)
     I2C1_Initialize(400);
     while (1)
     {
-        ZxAction(); 
+        ZxGesture();
+       // ZxAction(); 
     }
     return -1;
 }
