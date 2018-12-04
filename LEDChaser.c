@@ -17,12 +17,12 @@ void LEDChaser(int delay, int direction)
         case 1:
             if(LATA == 0b10000000) LATA = 0b00000001;
             else LATA = LATA << 1;
-            __delay32(delay * FCY/1000);
+            __delay32(delay * (FCY/1000));
             break;
         case 2:
             if(LATA == 0b00000001) LATA = 0b10000000;
             else LATA = LATA >> 1;
-            __delay32(delay * FCY/1000);
+            __delay32(delay * (FCY/1000));
             break;
         case 3:
             LATA = 0b11111111;

@@ -18,7 +18,7 @@
 #define DRE     (0x01)
 #define GESTURE (0x04)
 #define STATUS  (0x00)
-#define MULTIPLIER  (500)
+#define MULTIPLIER  (20)
 #define FCY     16000000
 
 static enum {ZX_IDLE=0, ZX_R_SWIPE, ZX_L_SWIPE, ZX_UP_SWIPE, ZX_HOVER, ZX_HL, ZX_HR, ZX_HU};
@@ -85,18 +85,18 @@ void ZxAction(void){
 * Author: Emily Cvejic 
 *   Purpose - Reads from the speed (GSPEED) register. The value is returned by an
 *             integer. The larger the integer, the slower the speed of the gesture.
-*   Returns - SpeedReturn: integer of value 1-7 that represents the speed. 1 is 
-*             slowest, 7 is fastest.   
+*   Returns - SpeedReturn: integer of value 1-7 that represents the speed. 7 is 
+*             slowest, 1 is fastest.   
 *******************************************************************************/
 int ZxReadSpeed(){
     GestureSpeed = ZXGesture_ReadByte(0x05);    // Read from the GSPEED register, last gesture speed
-    if(GestureSpeed>=1 && GestureSpeed<=5) SpeedReturn=7;
-    if(GestureSpeed>=6 && GestureSpeed<=10) SpeedReturn=6;
-    if(GestureSpeed>=11 && GestureSpeed<=15) SpeedReturn=5;
+    if(GestureSpeed>=1 && GestureSpeed<=5) SpeedReturn=1;
+    if(GestureSpeed>=6 && GestureSpeed<=10) SpeedReturn=2;
+    if(GestureSpeed>=11 && GestureSpeed<=15) SpeedReturn=3;
     if(GestureSpeed>=16 && GestureSpeed<=20) SpeedReturn=4;
-    if(GestureSpeed>=21 && GestureSpeed<=25) SpeedReturn=3;
-    if(GestureSpeed>=26 && GestureSpeed<=30) SpeedReturn=2;
-    if(GestureSpeed>=31) SpeedReturn=1;
+    if(GestureSpeed>=21 && GestureSpeed<=25) SpeedReturn=5;
+    if(GestureSpeed>=26 && GestureSpeed<=30) SpeedReturn=6;
+    if(GestureSpeed>=31) SpeedReturn=7;
     return SpeedReturn;
 }
 
