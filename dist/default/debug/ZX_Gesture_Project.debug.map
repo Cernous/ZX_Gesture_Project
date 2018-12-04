@@ -30,11 +30,11 @@ Command:
   build/default/debug/uart2.o \
   build/default/debug/ZxGesture.o \
   build/default/debug/LEDChaser.o \
-  -TC:\Users\CST\AppData\Local\Temp\tmp00000b28.00 \
-  -TC:\Users\CST\AppData\Local\Temp\tmp00000b28.01 \
-  -TC:\Users\CST\AppData\Local\Temp\tmp00000b28.02 \
-  -TC:\Users\CST\AppData\Local\Temp\tmp00000b28.03 \
-  -TC:\Users\CST\AppData\Local\Temp\tmp00000b28.04 \
+  -TC:\Users\CST\AppData\Local\Temp\tmp00000558.00 \
+  -TC:\Users\CST\AppData\Local\Temp\tmp00000558.01 \
+  -TC:\Users\CST\AppData\Local\Temp\tmp00000558.02 \
+  -TC:\Users\CST\AppData\Local\Temp\tmp00000558.03 \
+  -TC:\Users\CST\AppData\Local\Temp\tmp00000558.04 \
   --defsym=__MPLAB_BUILD=1 \
   --defsym=__MPLAB_DEBUG=1 \
   --defsym=__DEBUG=1 \
@@ -67,6 +67,10 @@ c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init
                               c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o) (__data_init_standard)
 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
                               build/default/debug/main.o (___delay32)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.eo)
+                              build/default/debug/LEDChaser.o (___divsi3)
+c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
+                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.eo) (___udivsi3)
 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
                               build/default/debug/i2c1.o (___udivdi3)
 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.eo)
@@ -87,8 +91,6 @@ c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(write.eo)
                               c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.eo) (_write)
 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uart.eo)
                               c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(write.eo) (___C30_UART)
-c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
-                              c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo) (___udivsi3)
 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
                               c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo) (___mulsi3)
 
@@ -97,15 +99,15 @@ Program Memory  [Origin = 0x200, Length = 0x155fc]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0xc1c          0x122a  (4650)
-.const                       0xe1c               0x15c           0x20a  (522)
-.text                        0xf78               0x460           0x690  (1680)
-.dinit                      0x13d8                0xf0           0x168  (360)
-.text                       0x14c8                0xfe           0x17d  (381)
-.init.delay32               0x15c6                0x1c            0x2a  (42)
-.text                       0x15e2                0x1c            0x2a  (42)
+.text                        0x200               0xc3a          0x1257  (4695)
+.const                       0xe3a               0x15c           0x20a  (522)
+.text                        0xf96               0x480           0x6c0  (1728)
+.dinit                      0x1416                0xf6           0x171  (369)
+.text                       0x150c               0x1a4           0x276  (630)
+.init.delay32               0x16b0                0x1c            0x2a  (42)
+.text                       0x16cc                 0x6             0x9  (9)
 
-                     Total program memory used (bytes):         0x1dfd  (7677) 5%
+                     Total program memory used (bytes):         0x1f3b  (7995) 6%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
@@ -117,18 +119,18 @@ reserve_data_0x820           0x820                 0x2             0x2  (2)
 reserve_data_0x822           0x822                 0x2             0x2  (2)
 reserve_data_0x824           0x824                 0x2             0x2  (2)
 reserve_data_0x826           0x826                0x2a            0x2a  (42)
-.nbss                        0x850                   0            0x70  (112)
-.ndata                       0x8c0                   0             0x2  (2)
-.data.dpowers                0x8c2                   0            0xa0  (160)
-.data                        0x962                   0            0x2a  (42)
-.data._iob                   0x98c                   0            0x24  (36)
-.data._Files                 0x9b0                   0             0x2  (2)
-.bss._outdone                0x9b2                   0             0x2  (2)
-.bss._sibuf                  0x9b4                   0             0x2  (2)
-.bss._sobuf                  0x9b6                   0             0x2  (2)
-.data.__C30_UART             0x9b8                   0             0x2  (2)
+.nbss                        0x850                   0            0x72  (114)
+.ndata                       0x8c2                   0             0x2  (2)
+.data.dpowers                0x8c4                   0            0xa0  (160)
+.data                        0x964                   0            0x2a  (42)
+.data._iob                   0x98e                   0            0x24  (36)
+.data._Files                 0x9b2                   0             0x2  (2)
+.bss._outdone                0x9b4                   0             0x2  (2)
+.bss._sibuf                  0x9b6                   0             0x2  (2)
+.bss._sobuf                  0x9b8                   0             0x2  (2)
+.data.__C30_UART             0x9ba                   0             0x2  (2)
 
-                        Total data memory used (bytes):          0x1ba  (442) 5%
+                        Total data memory used (bytes):          0x1bc  (444) 5%
 
 
 Dynamic Memory Usage
@@ -136,30 +138,34 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x9ba                              0x1e46  (7750)
+stack                        0x9bc                              0x1e44  (7748)
 
-                        Maximum dynamic memory (bytes):         0x1e46  (7750)
+                        Maximum dynamic memory (bytes):         0x1e44  (7748)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0859                  _buffer
-                    0x098c                  __iob
-                    0x09b0                  __Files
-                    0x09b2                  __outdone
-                    0x09b4                  __sibuf
-                    0x09b6                  __sobuf
-                    0x09b8                  ___C30_UART
+                    0x0857                  _buffer
+                    0x08be                  _Delay
+                    0x08c0                  _Direction
+                    0x098e                  __iob
+                    0x09b2                  __Files
+                    0x09b4                  __outdone
+                    0x09b6                  __sibuf
+                    0x09b8                  __sobuf
+                    0x09ba                  ___C30_UART
 
 External Symbols in Data Memory (by name):
 
-                    0x09b0                  __Files
-                    0x09b8                  ___C30_UART
-                    0x098c                  __iob
-                    0x09b2                  __outdone
-                    0x09b4                  __sibuf
-                    0x09b6                  __sobuf
-                    0x0859                  _buffer
+                    0x08be                  _Delay
+                    0x08c0                  _Direction
+                    0x09b2                  __Files
+                    0x09ba                  ___C30_UART
+                    0x098e                  __iob
+                    0x09b4                  __outdone
+                    0x09b6                  __sibuf
+                    0x09b8                  __sobuf
+                    0x0857                  _buffer
 
 External Symbols in Program Memory (by address):
 
@@ -168,108 +174,110 @@ External Symbols in Program Memory (by address):
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00029a                  __DefaultInterrupt
-                  0x000370                  ___udivmoddi3
-                  0x000454                  ___udivdi3
-                  0x000462                  ___umoddi3
-                  0x00046a                  ___divdi3
-                  0x0004ca                  ___moddi3
-                  0x000526                  ___muldi3
-                  0x000578                  ___umuldi3
-                  0x0005bc                  __sprintf_cdnopuxX
-                  0x0005e8                  __vfprintf_cdnopuxX
-                  0x000df0                  ___udivsi3
-                  0x000e10                  ___mulp32peds3
-                  0x000e10                  ___mulsi3
-                  0x000e10                  ___mulp32eds3
-                  0x000f78                  _I2C1_Initialize
-                  0x000fb6                  _startI2C1
-                  0x000fc8                  _stopI2C1
-                  0x000fda                  _putI2C1
-                  0x001000                  _getI2C1
-                  0x001050                  _write1I2C1
-                  0x00106a                  _writeNI2C1
-                  0x0010a0                  _read1I2C1
-                  0x0010c0                  _readNI2C1
-                  0x001108                  _ZX_XPos
-                  0x001120                  _ZxAction
-                  0x0011d2                  _ZxReadSpeed
-                  0x001250                  _ChaserDelay
-                  0x001260                  _ZXGesture_WriteByte
-                  0x00127a                  _ZXGesture_ReadByte
-                  0x001292                  _UART2_Initialize
-                  0x0012bc                  _outChar
-                  0x0012d6                  _outString
-                  0x0012fe                  _inString
-                  0x001350                  _inChar
-                  0x00137e                  _checkRxErrorUART2
-                  0x00139e                  __U2RXInterrupt
-                  0x0014c8                  _PIN_MANAGER_Initialize
-                  0x001546                  __OscillatorFail
-                  0x00154e                  __StackError
-                  0x001558                  __AddressError
-                  0x001560                  __MathError
-                  0x001568                  _initLEDs
-                  0x001582                  _LEDChaser
-                  0x00159e                  _SYSTEM_Initialize
-                  0x0015aa                  _OSCILLATOR_Initialize
-                  0x0015c6                  ___delay32
-                  0x0015e2                  _main
-                  0x0015f8                  _INTERRUPT_Initialize
+                  0x0002fe                  ___divsi3
+                  0x00031c                  ___udivsi3
+                  0x0003ae                  ___udivmoddi3
+                  0x000492                  ___udivdi3
+                  0x0004a0                  ___umoddi3
+                  0x0004a8                  ___divdi3
+                  0x000508                  ___moddi3
+                  0x000564                  ___muldi3
+                  0x0005b6                  ___umuldi3
+                  0x0005fa                  __sprintf_cdnopuxX
+                  0x000626                  __vfprintf_cdnopuxX
+                  0x000e2e                  ___mulp32peds3
+                  0x000e2e                  ___mulp32eds3
+                  0x000e2e                  ___mulsi3
+                  0x000f96                  _ZX_XPos
+                  0x000fae                  _ZxAction
+                  0x001080                  _ZxReadSpeed
+                  0x0010fe                  _ChaserDelay
+                  0x00110e                  _ZXGesture_WriteByte
+                  0x001128                  _ZXGesture_ReadByte
+                  0x001140                  _I2C1_Initialize
+                  0x00117e                  _startI2C1
+                  0x001190                  _stopI2C1
+                  0x0011a2                  _putI2C1
+                  0x0011c8                  _getI2C1
+                  0x001218                  _write1I2C1
+                  0x001232                  _writeNI2C1
+                  0x001268                  _read1I2C1
+                  0x001288                  _readNI2C1
+                  0x0012d0                  _UART2_Initialize
+                  0x0012fa                  _outChar
+                  0x001314                  _outString
+                  0x00133c                  _inString
+                  0x00138e                  _inChar
+                  0x0013bc                  _checkRxErrorUART2
+                  0x0013dc                  __U2RXInterrupt
+                  0x00150c                  _initLEDs
+                  0x001526                  _LEDChaser
+                  0x0015c2                  _PIN_MANAGER_Initialize
+                  0x001640                  __OscillatorFail
+                  0x001648                  __StackError
+                  0x001652                  __AddressError
+                  0x00165a                  __MathError
+                  0x001662                  _SYSTEM_Initialize
+                  0x00166e                  _OSCILLATOR_Initialize
+                  0x00168a                  _main
+                  0x0016b0                  ___delay32
+                  0x0016cc                  _INTERRUPT_Initialize
 
 External Symbols in Program Memory (by name):
 
-                  0x001250                  _ChaserDelay
-                  0x000f78                  _I2C1_Initialize
-                  0x0015f8                  _INTERRUPT_Initialize
-                  0x001582                  _LEDChaser
-                  0x0015aa                  _OSCILLATOR_Initialize
-                  0x0014c8                  _PIN_MANAGER_Initialize
-                  0x00159e                  _SYSTEM_Initialize
-                  0x001292                  _UART2_Initialize
-                  0x00127a                  _ZXGesture_ReadByte
-                  0x001260                  _ZXGesture_WriteByte
-                  0x001108                  _ZX_XPos
-                  0x001120                  _ZxAction
-                  0x0011d2                  _ZxReadSpeed
-                  0x001558                  __AddressError
+                  0x0010fe                  _ChaserDelay
+                  0x001140                  _I2C1_Initialize
+                  0x0016cc                  _INTERRUPT_Initialize
+                  0x001526                  _LEDChaser
+                  0x00166e                  _OSCILLATOR_Initialize
+                  0x0015c2                  _PIN_MANAGER_Initialize
+                  0x001662                  _SYSTEM_Initialize
+                  0x0012d0                  _UART2_Initialize
+                  0x001128                  _ZXGesture_ReadByte
+                  0x00110e                  _ZXGesture_WriteByte
+                  0x000f96                  _ZX_XPos
+                  0x000fae                  _ZxAction
+                  0x001080                  _ZxReadSpeed
+                  0x001652                  __AddressError
                   0x00029a                  __DefaultInterrupt
-                  0x001560                  __MathError
-                  0x001546                  __OscillatorFail
-                  0x00154e                  __StackError
-                  0x00139e                  __U2RXInterrupt
-                  0x0015c6                  ___delay32
-                  0x00046a                  ___divdi3
-                  0x0004ca                  ___moddi3
-                  0x000526                  ___muldi3
-                  0x000e10                  ___mulp32eds3
-                  0x000e10                  ___mulp32peds3
-                  0x000e10                  ___mulsi3
-                  0x000454                  ___udivdi3
-                  0x000370                  ___udivmoddi3
-                  0x000df0                  ___udivsi3
-                  0x000462                  ___umoddi3
-                  0x000578                  ___umuldi3
+                  0x00165a                  __MathError
+                  0x001640                  __OscillatorFail
+                  0x001648                  __StackError
+                  0x0013dc                  __U2RXInterrupt
+                  0x0016b0                  ___delay32
+                  0x0004a8                  ___divdi3
+                  0x0002fe                  ___divsi3
+                  0x000508                  ___moddi3
+                  0x000564                  ___muldi3
+                  0x000e2e                  ___mulp32eds3
+                  0x000e2e                  ___mulp32peds3
+                  0x000e2e                  ___mulsi3
+                  0x000492                  ___udivdi3
+                  0x0003ae                  ___udivmoddi3
+                  0x00031c                  ___udivsi3
+                  0x0004a0                  ___umoddi3
+                  0x0005b6                  ___umuldi3
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0005bc                  __sprintf_cdnopuxX
-                  0x0005e8                  __vfprintf_cdnopuxX
-                  0x00137e                  _checkRxErrorUART2
-                  0x001000                  _getI2C1
-                  0x001350                  _inChar
-                  0x0012fe                  _inString
-                  0x001568                  _initLEDs
-                  0x0015e2                  _main
-                  0x0012bc                  _outChar
-                  0x0012d6                  _outString
-                  0x000fda                  _putI2C1
-                  0x0010a0                  _read1I2C1
-                  0x0010c0                  _readNI2C1
-                  0x000fb6                  _startI2C1
-                  0x000fc8                  _stopI2C1
-                  0x001050                  _write1I2C1
-                  0x00106a                  _writeNI2C1
+                  0x0005fa                  __sprintf_cdnopuxX
+                  0x000626                  __vfprintf_cdnopuxX
+                  0x0013bc                  _checkRxErrorUART2
+                  0x0011c8                  _getI2C1
+                  0x00138e                  _inChar
+                  0x00133c                  _inString
+                  0x00150c                  _initLEDs
+                  0x00168a                  _main
+                  0x0012fa                  _outChar
+                  0x001314                  _outString
+                  0x0011a2                  _putI2C1
+                  0x001268                  _read1I2C1
+                  0x001288                  _readNI2C1
+                  0x00117e                  _startI2C1
+                  0x001190                  _stopI2C1
+                  0x001218                  _write1I2C1
+                  0x001232                  _writeNI2C1
 
 Memory Configuration
 
@@ -341,7 +349,7 @@ LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0xc1c
+.text             0x000200        0xc3a
  *(.init)
  .init            0x000200         0x3c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -361,47 +369,49 @@ LOAD c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
  *(.libm)
  *(.libdsp)
  *(.lib*)
+ .libm.divsi3     0x0002fe         0x1e c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.eo)
+                  0x0002fe                  ___divsi3
+ .libm.udivsi3    0x00031c         0x20 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
+                  0x00031c                  ___udivsi3
  .libm.__PplusBdi
-                  0x0002fe         0x28 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x00033c         0x28 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
  .libm.__PminusBdi
-                  0x000326         0x4a c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x000364         0x4a c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
  .libm.__udivmoddi3
-                  0x000370         0xe4 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
-                  0x000370                  ___udivmoddi3
+                  0x0003ae         0xe4 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x0003ae                  ___udivmoddi3
  .libm.__udivdi3
-                  0x000454          0xe c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
-                  0x000454                  ___udivdi3
+                  0x000492          0xe c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x000492                  ___udivdi3
  .libm.__umoddi3
-                  0x000462          0x8 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
-                  0x000462                  ___umoddi3
+                  0x0004a0          0x8 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x0004a0                  ___umoddi3
  .libm.__divdi3
-                  0x00046a         0x60 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
-                  0x00046a                  ___divdi3
+                  0x0004a8         0x60 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x0004a8                  ___divdi3
  .libm.__moddi3
-                  0x0004ca         0x5c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
-                  0x0004ca                  ___moddi3
+                  0x000508         0x5c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x000508                  ___moddi3
  .libm.__muldi3
-                  0x000526         0x52 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.eo)
-                  0x000526                  ___muldi3
- .libm.umuldi3    0x000578         0x44 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.eo)
-                  0x000578                  ___umuldi3
+                  0x000564         0x52 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.eo)
+                  0x000564                  ___muldi3
+ .libm.umuldi3    0x0005b6         0x44 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.eo)
+                  0x0005b6                  ___umuldi3
  .libc._sprintf_cdnopuxX
-                  0x0005bc         0x2c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(sprintf_cdnopuxX.XXeo)
-                  0x0005bc                  __sprintf_cdnopuxX
+                  0x0005fa         0x2c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(sprintf_cdnopuxX.XXeo)
+                  0x0005fa                  __sprintf_cdnopuxX
  .libc._vfprintf_cdnopuxX
-                  0x0005e8        0x6f8 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
-                  0x0005e8                  __vfprintf_cdnopuxX
- .libc.fputc      0x000ce0         0x88 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.eo)
-                  0x000ce0                  _fputc
- .libc._flsbuf    0x000d68         0x84 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.eo)
-                  0x000d68                  __flsbuf
- .libc.dowrite    0x000dec          0x4 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(write.eo)
- .libm.udivsi3    0x000df0         0x20 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
-                  0x000df0                  ___udivsi3
- .libm.mulsi3     0x000e10          0xc c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
-                  0x000e10                  ___mulp32peds3
-                  0x000e10                  ___mulsi3
-                  0x000e10                  ___mulp32eds3
+                  0x000626        0x6f8 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
+                  0x000626                  __vfprintf_cdnopuxX
+ .libc.fputc      0x000d1e         0x88 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.eo)
+                  0x000d1e                  _fputc
+ .libc._flsbuf    0x000da6         0x84 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.eo)
+                  0x000da6                  __flsbuf
+ .libc.dowrite    0x000e2a          0x4 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(write.eo)
+ .libm.mulsi3     0x000e2e          0xc c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
+                  0x000e2e                  ___mulp32peds3
+                  0x000e2e                  ___mulsi3
+                  0x000e2e                  ___mulp32eds3
 
 usercode
  *(usercode)
@@ -415,42 +425,42 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x2101
+.debug_info       0x000000       0x21a5
  *(.debug_info)
  .debug_info      0x000000        0x3ca build/default/debug/mcc_generated_files/pin_manager.o
  .debug_info      0x0003ca         0xe5 build/default/debug/mcc_generated_files/interrupt_manager.o
  .debug_info      0x0004af        0x384 build/default/debug/mcc_generated_files/traps.o
  .debug_info      0x000833        0x1c4 build/default/debug/mcc_generated_files/mcc.o
- .debug_info      0x0009f7        0x161 build/default/debug/main.o
- .debug_info      0x000b58        0x674 build/default/debug/i2c1.o
- .debug_info      0x0011cc        0x928 build/default/debug/uart2.o
- .debug_info      0x001af4        0x366 build/default/debug/ZxGesture.o
- .debug_info      0x001e5a        0x2a7 build/default/debug/LEDChaser.o
+ .debug_info      0x0009f7        0x1e0 build/default/debug/main.o
+ .debug_info      0x000bd7        0x674 build/default/debug/i2c1.o
+ .debug_info      0x00124b        0x928 build/default/debug/uart2.o
+ .debug_info      0x001b73        0x38b build/default/debug/ZxGesture.o
+ .debug_info      0x001efe        0x2a7 build/default/debug/LEDChaser.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x6ca
+.debug_abbrev     0x000000        0x734
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x5d build/default/debug/mcc_generated_files/pin_manager.o
  .debug_abbrev    0x00005d         0x34 build/default/debug/mcc_generated_files/interrupt_manager.o
  .debug_abbrev    0x000091        0x100 build/default/debug/mcc_generated_files/traps.o
  .debug_abbrev    0x000191         0x59 build/default/debug/mcc_generated_files/mcc.o
- .debug_abbrev    0x0001ea         0x55 build/default/debug/main.o
- .debug_abbrev    0x00023f        0x11e build/default/debug/i2c1.o
- .debug_abbrev    0x00035d        0x16a build/default/debug/uart2.o
- .debug_abbrev    0x0004c7        0x130 build/default/debug/ZxGesture.o
- .debug_abbrev    0x0005f7         0xd3 build/default/debug/LEDChaser.o
+ .debug_abbrev    0x0001ea         0xae build/default/debug/main.o
+ .debug_abbrev    0x000298        0x11e build/default/debug/i2c1.o
+ .debug_abbrev    0x0003b6        0x16a build/default/debug/uart2.o
+ .debug_abbrev    0x000520        0x141 build/default/debug/ZxGesture.o
+ .debug_abbrev    0x000661         0xd3 build/default/debug/LEDChaser.o
 
-.debug_line       0x000000        0xe26
+.debug_line       0x000000        0xe8e
  *(.debug_line)
  .debug_line      0x000000        0x17b build/default/debug/mcc_generated_files/pin_manager.o
  .debug_line      0x00017b         0x69 build/default/debug/mcc_generated_files/interrupt_manager.o
  .debug_line      0x0001e4        0x1d2 build/default/debug/mcc_generated_files/traps.o
  .debug_line      0x0003b6        0x145 build/default/debug/mcc_generated_files/mcc.o
- .debug_line      0x0004fb         0x78 build/default/debug/main.o
- .debug_line      0x000573        0x2c8 build/default/debug/i2c1.o
- .debug_line      0x00083b        0x28d build/default/debug/uart2.o
- .debug_line      0x000ac8        0x237 build/default/debug/ZxGesture.o
- .debug_line      0x000cff        0x127 build/default/debug/LEDChaser.o
+ .debug_line      0x0004fb         0x88 build/default/debug/main.o
+ .debug_line      0x000583        0x2c8 build/default/debug/i2c1.o
+ .debug_line      0x00084b        0x28d build/default/debug/uart2.o
+ .debug_line      0x000ad8        0x257 build/default/debug/ZxGesture.o
+ .debug_line      0x000d2f        0x15f build/default/debug/LEDChaser.o
 
 .debug_frame      0x000000        0x364
  *(.debug_frame)
@@ -464,13 +474,14 @@ __CONFIG1
  .debug_frame     0x00023c         0xf4 build/default/debug/ZxGesture.o
  .debug_frame     0x000330         0x34 build/default/debug/LEDChaser.o
 
-.debug_str        0x000000         0x70
+.debug_str        0x000000         0x84
  *(.debug_str)
  .debug_str       0x000000          0xc build/default/debug/mcc_generated_files/traps.o
- .debug_str       0x00000c         0x29 build/default/debug/i2c1.o
- .debug_str       0x000035         0x25 build/default/debug/uart2.o
- .debug_str       0x00005a          0xc build/default/debug/ZxGesture.o
- .debug_str       0x000066          0xa build/default/debug/LEDChaser.o
+ .debug_str       0x00000c          0xa build/default/debug/main.o
+ .debug_str       0x000016         0x29 build/default/debug/i2c1.o
+ .debug_str       0x00003f         0x25 build/default/debug/uart2.o
+ .debug_str       0x000064         0x16 build/default/debug/ZxGesture.o
+ .debug_str       0x00007a          0xa build/default/debug/LEDChaser.o
 
 .debug_loc
  *(.debug_loc)
@@ -479,7 +490,7 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x2eb
+                  0x000000        0x303
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x2d build/default/debug/mcc_generated_files/pin_manager.o
@@ -490,15 +501,15 @@ __CONFIG1
  .debug_pubnames
                   0x0000c7         0x42 build/default/debug/mcc_generated_files/mcc.o
  .debug_pubnames
-                  0x000109         0x1b build/default/debug/main.o
+                  0x000109         0x33 build/default/debug/main.o
  .debug_pubnames
-                  0x000124         0x93 build/default/debug/i2c1.o
+                  0x00013c         0x93 build/default/debug/i2c1.o
  .debug_pubnames
-                  0x0001b7         0x82 build/default/debug/uart2.o
+                  0x0001cf         0x82 build/default/debug/uart2.o
  .debug_pubnames
-                  0x000239         0x85 build/default/debug/ZxGesture.o
+                  0x000251         0x85 build/default/debug/ZxGesture.o
  .debug_pubnames
-                  0x0002be         0x2d build/default/debug/LEDChaser.o
+                  0x0002d6         0x2d build/default/debug/LEDChaser.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -526,10 +537,10 @@ __CONFIG1
 
 .ivt              0x000004         0xfc
                   0x000004          0x4 LONG 0x29a DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
-                  0x000006          0x4 LONG 0x1546 DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
-                  0x000008          0x4 LONG 0x1558 DEFINED (__AddressError)?ABSOLUTE (__AddressError):ABSOLUTE (__DefaultInterrupt)
-                  0x00000a          0x4 LONG 0x154e DEFINED (__StackError)?ABSOLUTE (__StackError):ABSOLUTE (__DefaultInterrupt)
-                  0x00000c          0x4 LONG 0x1560 DEFINED (__MathError)?ABSOLUTE (__MathError):ABSOLUTE (__DefaultInterrupt)
+                  0x000006          0x4 LONG 0x1640 DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
+                  0x000008          0x4 LONG 0x1652 DEFINED (__AddressError)?ABSOLUTE (__AddressError):ABSOLUTE (__DefaultInterrupt)
+                  0x00000a          0x4 LONG 0x1648 DEFINED (__StackError)?ABSOLUTE (__StackError):ABSOLUTE (__DefaultInterrupt)
+                  0x00000c          0x4 LONG 0x165a DEFINED (__MathError)?ABSOLUTE (__MathError):ABSOLUTE (__DefaultInterrupt)
                   0x00000e          0x4 LONG 0x29a DEFINED (__ReservedTrap5)?ABSOLUTE (__ReservedTrap5):ABSOLUTE (__DefaultInterrupt)
                   0x000010          0x4 LONG 0x29a DEFINED (__ReservedTrap6)?ABSOLUTE (__ReservedTrap6):ABSOLUTE (__DefaultInterrupt)
                   0x000012          0x4 LONG 0x29a DEFINED (__ReservedTrap7)?ABSOLUTE (__ReservedTrap7):ABSOLUTE (__DefaultInterrupt)
@@ -563,7 +574,7 @@ __CONFIG1
                   0x00004a          0x4 LONG 0x29a DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004c          0x4 LONG 0x29a DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x29a DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000050          0x4 LONG 0x139e DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000050          0x4 LONG 0x13dc DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000052          0x4 LONG 0x29a DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000054          0x4 LONG 0x29a DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000056          0x4 LONG 0x29a DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -654,10 +665,10 @@ __CONFIG1
 
 .aivt             0x000104         0xfc
                   0x000104          0x4 LONG 0x29a DEFINED (__AltReservedTrap0)?ABSOLUTE (__AltReservedTrap0):DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
-                  0x000106          0x4 LONG 0x1546 DEFINED (__AltOscillatorFail)?ABSOLUTE (__AltOscillatorFail):DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
-                  0x000108          0x4 LONG 0x1558 DEFINED (__AltAddressError)?ABSOLUTE (__AltAddressError):DEFINED (__AddressError)?ABSOLUTE (__AddressError):ABSOLUTE (__DefaultInterrupt)
-                  0x00010a          0x4 LONG 0x154e DEFINED (__AltStackError)?ABSOLUTE (__AltStackError):DEFINED (__StackError)?ABSOLUTE (__StackError):ABSOLUTE (__DefaultInterrupt)
-                  0x00010c          0x4 LONG 0x1560 DEFINED (__AltMathError)?ABSOLUTE (__AltMathError):DEFINED (__MathError)?ABSOLUTE (__MathError):ABSOLUTE (__DefaultInterrupt)
+                  0x000106          0x4 LONG 0x1640 DEFINED (__AltOscillatorFail)?ABSOLUTE (__AltOscillatorFail):DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
+                  0x000108          0x4 LONG 0x1652 DEFINED (__AltAddressError)?ABSOLUTE (__AltAddressError):DEFINED (__AddressError)?ABSOLUTE (__AddressError):ABSOLUTE (__DefaultInterrupt)
+                  0x00010a          0x4 LONG 0x1648 DEFINED (__AltStackError)?ABSOLUTE (__AltStackError):DEFINED (__StackError)?ABSOLUTE (__StackError):ABSOLUTE (__DefaultInterrupt)
+                  0x00010c          0x4 LONG 0x165a DEFINED (__AltMathError)?ABSOLUTE (__AltMathError):DEFINED (__MathError)?ABSOLUTE (__MathError):ABSOLUTE (__DefaultInterrupt)
                   0x00010e          0x4 LONG 0x29a DEFINED (__AltReservedTrap5)?ABSOLUTE (__AltReservedTrap5):DEFINED (__ReservedTrap5)?ABSOLUTE (__ReservedTrap5):ABSOLUTE (__DefaultInterrupt)
                   0x000110          0x4 LONG 0x29a DEFINED (__AltReservedTrap6)?ABSOLUTE (__AltReservedTrap6):DEFINED (__ReservedTrap6)?ABSOLUTE (__ReservedTrap6):ABSOLUTE (__DefaultInterrupt)
                   0x000112          0x4 LONG 0x29a DEFINED (__AltReservedTrap7)?ABSOLUTE (__AltReservedTrap7):DEFINED (__ReservedTrap7)?ABSOLUTE (__ReservedTrap7):ABSOLUTE (__DefaultInterrupt)
@@ -691,7 +702,7 @@ __CONFIG1
                   0x00014a          0x4 LONG 0x29a DEFINED (__AltT4Interrupt)?ABSOLUTE (__AltT4Interrupt):DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00014c          0x4 LONG 0x29a DEFINED (__AltT5Interrupt)?ABSOLUTE (__AltT5Interrupt):DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00014e          0x4 LONG 0x29a DEFINED (__AltINT2Interrupt)?ABSOLUTE (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000150          0x4 LONG 0x139e DEFINED (__AltU2RXInterrupt)?ABSOLUTE (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000150          0x4 LONG 0x13dc DEFINED (__AltU2RXInterrupt)?ABSOLUTE (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000152          0x4 LONG 0x29a DEFINED (__AltU2TXInterrupt)?ABSOLUTE (__AltU2TXInterrupt):DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000154          0x4 LONG 0x29a DEFINED (__AltSPI2ErrInterrupt)?ABSOLUTE (__AltSPI2ErrInterrupt):DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000156          0x4 LONG 0x29a DEFINED (__AltSPI2Interrupt)?ABSOLUTE (__AltSPI2Interrupt):DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1382,7 +1393,7 @@ LOAD data_init
                   0x00026e         0x31 build/default/debug/LEDChaser.o
 
 __c30_signature
-                  0x00029f         0x90
+                  0x00029f         0x96
  __c30_signature
                   0x00029f          0x6 build/default/debug/mcc_generated_files/pin_manager.o
  __c30_signature
@@ -1408,70 +1419,75 @@ __c30_signature
  __c30_signature
                   0x0002e1          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
  __c30_signature
-                  0x0002e7          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
+                  0x0002e7          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divsi3.eo)
  __c30_signature
-                  0x0002ed          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.eo)
+                  0x0002ed          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
  __c30_signature
-                  0x0002f3          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.eo)
+                  0x0002f3          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(divmoddi3.eo)
  __c30_signature
-                  0x0002f9          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(sprintf_cdnopuxX.XXeo)
+                  0x0002f9          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(muldi3.eo)
  __c30_signature
-                  0x0002ff          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
+                  0x0002ff          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(umuldi3.eo)
  __c30_signature
-                  0x000305          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.eo)
+                  0x000305          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(sprintf_cdnopuxX.XXeo)
  __c30_signature
-                  0x00030b          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
+                  0x00030b          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
  __c30_signature
-                  0x000311          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.eo)
+                  0x000311          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(fputc.eo)
  __c30_signature
-                  0x000317          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(write.eo)
+                  0x000317          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
  __c30_signature
-                  0x00031d          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uart.eo)
+                  0x00031d          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(flsbuf.eo)
  __c30_signature
-                  0x000323          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
+                  0x000323          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(write.eo)
  __c30_signature
-                  0x000329          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
+                  0x000329          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uart.eo)
+ __c30_signature
+                  0x00032f          0x6 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(mulsi3.eo)
 
-.nbss               0x0850         0x70
- .nbss              0x0850         0x3c build/default/debug/ZxGesture.o
-                    0x0859                  _buffer
- .nbss              0x088c         0x20 build/default/debug/mcc_generated_files/traps.o
- .nbss              0x08ac         0x14 build/default/debug/uart2.o
+.nbss               0x0850         0x72
+ .nbss              0x0850         0x3a build/default/debug/ZxGesture.o
+                    0x0857                  _buffer
+ .nbss              0x088a         0x20 build/default/debug/mcc_generated_files/traps.o
+ .nbss              0x08aa         0x14 build/default/debug/uart2.o
+ .nbss              0x08be          0x4 build/default/debug/main.o
+                    0x08be                  _Delay
+                    0x08c0                  _Direction
 
-.ndata              0x08c0          0x2
- .ndata             0x08c0          0x2 build/default/debug/mcc_generated_files/traps.o
+.ndata              0x08c2          0x2
+ .ndata             0x08c2          0x2 build/default/debug/mcc_generated_files/traps.o
 
-.data.dpowers       0x08c2         0xa0
- .data.dpowers      0x08c2         0xa0 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
+.data.dpowers       0x08c4         0xa0
+ .data.dpowers      0x08c4         0xa0 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
 
-.data               0x0962         0x2a
- .data              0x0962         0x2a c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
+.data               0x0964         0x2a
+ .data              0x0964         0x2a c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(doprnt_cdnopuxX.XXeo)
 
-.data._iob          0x098c         0x24
- .data._iob         0x098c         0x24 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
-                    0x098c                  __iob
+.data._iob          0x098e         0x24
+ .data._iob         0x098e         0x24 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
+                    0x098e                  __iob
 
-.data._Files        0x09b0          0x2
- .data._Files       0x09b0          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
-                    0x09b0                  __Files
+.data._Files        0x09b2          0x2
+ .data._Files       0x09b2          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
+                    0x09b2                  __Files
 
-.bss._outdone       0x09b2          0x2
- .bss._outdone      0x09b2          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
-                    0x09b2                  __outdone
+.bss._outdone       0x09b4          0x2
+ .bss._outdone      0x09b4          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
+                    0x09b4                  __outdone
 
-.bss._sibuf         0x09b4          0x2
- .bss._sibuf        0x09b4          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
-                    0x09b4                  __sibuf
+.bss._sibuf         0x09b6          0x2
+ .bss._sibuf        0x09b6          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
+                    0x09b6                  __sibuf
 
-.bss._sobuf         0x09b6          0x2
- .bss._sobuf        0x09b6          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
-                    0x09b6                  __sobuf
+.bss._sobuf         0x09b8          0x2
+ .bss._sobuf        0x09b8          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(_iob.eo)
+                    0x09b8                  __sobuf
 
 .data.__C30_UART
-                    0x09b8          0x2
+                    0x09ba          0x2
  .data.__C30_UART
-                    0x09b8          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uart.eo)
-                    0x09b8                  ___C30_UART
+                    0x09ba          0x2 c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(c30_uart.eo)
+                    0x09ba                  ___C30_UART
 
 .config_JTAGEN    0x0157fe          0x2
  .config_JTAGEN
@@ -1480,63 +1496,63 @@ __c30_signature
 .config_IESO      0x0157fc          0x2
  .config_IESO     0x0157fc          0x2 build/default/debug/mcc_generated_files/mcc.o
 
-.const              0x8e1c        0x15c load address 0x000e1c  
- .const             0x8e1c        0x11a build/default/debug/ZxGesture.o
- .const             0x8f36         0x24 build/default/debug/uart2.o
- .const             0x8f5a         0x1e build/default/debug/i2c1.o
+.const              0x8e3a        0x15c load address 0x000e3a  
+ .const             0x8e3a        0x11a build/default/debug/ZxGesture.o
+ .const             0x8f54         0x24 build/default/debug/uart2.o
+ .const             0x8f78         0x1e build/default/debug/i2c1.o
 
-.text             0x000f78        0x460
- .text            0x000f78        0x190 build/default/debug/i2c1.o
-                  0x000f78                  _I2C1_Initialize
-                  0x000fb6                  _startI2C1
-                  0x000fc8                  _stopI2C1
-                  0x000fda                  _putI2C1
-                  0x001000                  _getI2C1
-                  0x001050                  _write1I2C1
-                  0x00106a                  _writeNI2C1
-                  0x0010a0                  _read1I2C1
-                  0x0010c0                  _readNI2C1
- .text            0x001108        0x18a build/default/debug/ZxGesture.o
-                  0x001108                  _ZX_XPos
-                  0x001120                  _ZxAction
-                  0x0011d2                  _ZxReadSpeed
-                  0x001250                  _ChaserDelay
-                  0x001260                  _ZXGesture_WriteByte
-                  0x00127a                  _ZXGesture_ReadByte
- .text            0x001292        0x146 build/default/debug/uart2.o
-                  0x001292                  _UART2_Initialize
-                  0x0012bc                  _outChar
-                  0x0012d6                  _outString
-                  0x0012fe                  _inString
-                  0x001350                  _inChar
-                  0x00137e                  _checkRxErrorUART2
-                  0x00139e                  __U2RXInterrupt
+.text             0x000f96        0x480
+ .text            0x000f96        0x1aa build/default/debug/ZxGesture.o
+                  0x000f96                  _ZX_XPos
+                  0x000fae                  _ZxAction
+                  0x001080                  _ZxReadSpeed
+                  0x0010fe                  _ChaserDelay
+                  0x00110e                  _ZXGesture_WriteByte
+                  0x001128                  _ZXGesture_ReadByte
+ .text            0x001140        0x190 build/default/debug/i2c1.o
+                  0x001140                  _I2C1_Initialize
+                  0x00117e                  _startI2C1
+                  0x001190                  _stopI2C1
+                  0x0011a2                  _putI2C1
+                  0x0011c8                  _getI2C1
+                  0x001218                  _write1I2C1
+                  0x001232                  _writeNI2C1
+                  0x001268                  _read1I2C1
+                  0x001288                  _readNI2C1
+ .text            0x0012d0        0x146 build/default/debug/uart2.o
+                  0x0012d0                  _UART2_Initialize
+                  0x0012fa                  _outChar
+                  0x001314                  _outString
+                  0x00133c                  _inString
+                  0x00138e                  _inChar
+                  0x0013bc                  _checkRxErrorUART2
+                  0x0013dc                  __U2RXInterrupt
 
-.dinit            0x0013d8         0xf0
- .dinit           0x0013d8         0xf0 data_init
+.dinit            0x001416         0xf6
+ .dinit           0x001416         0xf6 data_init
 
-.text             0x0014c8         0xfe
- .text            0x0014c8         0x66 build/default/debug/mcc_generated_files/pin_manager.o
-                  0x0014c8                  _PIN_MANAGER_Initialize
- .text            0x00152e         0x3a build/default/debug/mcc_generated_files/traps.o
-                  0x00152e                  _TRAPS_halt_on_error
-                  0x001546                  __OscillatorFail
-                  0x00154e                  __StackError
-                  0x001558                  __AddressError
-                  0x001560                  __MathError
- .text            0x001568         0x36 build/default/debug/LEDChaser.o
-                  0x001568                  _initLEDs
-                  0x001582                  _LEDChaser
- .text            0x00159e         0x28 build/default/debug/mcc_generated_files/mcc.o
-                  0x00159e                  _SYSTEM_Initialize
-                  0x0015aa                  _OSCILLATOR_Initialize
+.text             0x00150c        0x1a4
+ .text            0x00150c         0xb6 build/default/debug/LEDChaser.o
+                  0x00150c                  _initLEDs
+                  0x001526                  _LEDChaser
+ .text            0x0015c2         0x66 build/default/debug/mcc_generated_files/pin_manager.o
+                  0x0015c2                  _PIN_MANAGER_Initialize
+ .text            0x001628         0x3a build/default/debug/mcc_generated_files/traps.o
+                  0x001628                  _TRAPS_halt_on_error
+                  0x001640                  __OscillatorFail
+                  0x001648                  __StackError
+                  0x001652                  __AddressError
+                  0x00165a                  __MathError
+ .text            0x001662         0x28 build/default/debug/mcc_generated_files/mcc.o
+                  0x001662                  _SYSTEM_Initialize
+                  0x00166e                  _OSCILLATOR_Initialize
+ .text            0x00168a         0x26 build/default/debug/main.o
+                  0x00168a                  _main
 
-.init.delay32     0x0015c6         0x1c
- .init.delay32    0x0015c6         0x1c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
-                  0x0015c6                  ___delay32
+.init.delay32     0x0016b0         0x1c
+ .init.delay32    0x0016b0         0x1c c:/program files/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x0016b0                  ___delay32
 
-.text             0x0015e2         0x1c
- .text            0x0015e2         0x16 build/default/debug/main.o
-                  0x0015e2                  _main
- .text            0x0015f8          0x6 build/default/debug/mcc_generated_files/interrupt_manager.o
-                  0x0015f8                  _INTERRUPT_Initialize
+.text             0x0016cc          0x6
+ .text            0x0016cc          0x6 build/default/debug/mcc_generated_files/interrupt_manager.o
+                  0x0016cc                  _INTERRUPT_Initialize

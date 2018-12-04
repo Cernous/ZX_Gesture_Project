@@ -14,16 +14,20 @@
 #include "i2c1.h"
 #include "uart2.h"
 #define FCY     16000000
+int Delay;
+char Direction;
 int main(void)
 {
     SYSTEM_Initialize();          // initialize the device
     UART2_Initialize(); 
     I2C1_Initialize(400);
+    initLEDs();
     while (1)
     {
         __delay32(FCY/10);
         ZX_XPos();
         ZxAction(); 
+        LEDChaser(Delay,Direction);
     }
     return -1;
 }
