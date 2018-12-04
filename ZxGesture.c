@@ -8,113 +8,98 @@
 * 1.0.0     Emily Cvejic    11/27/2018      Created the file.
 * 1.0.1     Emily Cvejic    11/28/2018      Worked on functions ZxGesture, ZxAction, 
 *                                           ZxReadSpeed and ChaserDelay. 
-*
+* 1.0.2     ------------    12/3/2018       Broke system
+* 1.0.3     ____________    12/4/2018       Fixed hardware component blocking system. 
+ *                                          receiving correct values. Displaying speed and delay
 ***************************************************************************************/ 
 #include "ZxGesture.h"
 #define ZXADDR  (0x20)
 #define DRCFG   (0x02)
 #define DRE     (0x01)
-#define STATUS  0x00
+#define GESTURE (0x04)
+#define STATUS  (0x00)
 #define FCY     16000000
-#include "uart2.h"
-#include "i2c1.h"
-#include "xc.h"
-#include <string.h>
 
-static enum {ZX_IDLE=0, ZX_R_SWIPE, ZX_L_SWIPE, ZX_UP_SWIPE} state=ZX_L_SWIPE;
-static int GestureSpeed, Speed, Delay;
-static char Gesture, Xcoor, Zcoor;
+static enum {ZX_IDLE=0, ZX_R_SWIPE, ZX_L_SWIPE, ZX_UP_SWIPE, ZX_HOVER, ZX_HL, ZX_HR, ZX_HU};
+static int GestureSpeed, Speed, Delay, SpeedReturn;
+static unsigned char Gesture = ZX_IDLE;
 char buffer[50];
 
-
-/*************************************************************
-* Function  Name    - char ZxGesture(void)
-*           purpose - Polls for the status register to change.
-*                     returns the gesture value.
-*           author  - Emily Cvejic
-**************************************************************/
-char ZxGesture(void){
-    __delay32(FCY/10);
-    Xcoor = ZXGesture_ReadByte(0x00);
-//    Zcoor = ZXGesture_ReadByte(0x00);
-    sprintf(buffer, "X coordinate: 0x%x\n\r", Xcoor);
-    outString(buffer);
-//    sprintf(buffer, " Z coordinate: 0x%x\r\r", Zcoor);
-//    outString(buffer);
+char ZX_XPos(void){
+    Gesture = ZXGesture_ReadByte(GESTURE);
     return Gesture;
 }
 
-/*****************
-* Function Name     - void ZxAction(void)
-*          Purpose  - 
-* 
-******************/
+/*******************************************************************************
+* Function Name: void ZxAction(void)
+* Author: Emily Cvejic 
+*   Purpose - Prints to the serial terminal a message based on the gesture read.
+*             The message includes the speed and the delay of the chaser.  
+*******************************************************************************/
 void ZxAction(void){
-    switch(state){
+    switch(Gesture){
         case ZX_IDLE: 
-            outString("No Action Detected \r");
+            //outString("No Action Detected \r");
             break;
         case ZX_R_SWIPE:
             Speed=ZxReadSpeed();
             Delay=ChaserDelay();
-            sprintf(buffer,"Right Swipe Detected    Speed Value: %d    Delay Chaser: %dms\r", Speed, Delay);
+            sprintf(buffer,"Right Swipe Detected    Speed Value: %d    Delay Chaser: %d ms\n\r", Speed, Delay);
             outString(buffer);
             break; 
         case ZX_L_SWIPE:
             Speed=ZxReadSpeed();
             Delay=ChaserDelay();
-            sprintf(buffer,"Left Swipe Detected     Speed Value: %d    Delay Chaser: %dms\r", Speed, Delay);
+            sprintf(buffer,"Left Swipe Detected     Speed Value: %d    Delay Chaser: %d ms\n\r", Speed, Delay);
             outString(buffer);
             break; 
         case ZX_UP_SWIPE:
             Speed=ZxReadSpeed();
             Delay=ChaserDelay();
-            sprintf(buffer,"Up Swipe Detected       Speed Value: %d    Delay Chaser: %dms\r", Speed, Delay);
+            sprintf(buffer,"Up Swipe Detected       Speed Value: %d    Delay Chaser: %d ms\n\r", Speed, Delay);
             outString(buffer);
+            break;
+        case ZX_HOVER:
+            outString("Hover Detected \n\r");
+            break;
+        case ZX_HL:
+            outString("Hover Left Detected \n\r");
+            break;
+        case ZX_HR:
+            outString("Hover Right Detected \n\r");
+            break;
+        case ZX_HU:
+            outString("Hover Up Detected \n\r");
             break;
     }
 }
-
+/*******************************************************************************
+* Function Name: int ZxReadSpeed(void)
+* Author: Emily Cvejic 
+*   Purpose - Reads from the speed (GSPEED) register. The value is returned by an
+*             integer. The larger the integer, the slower the speed of the gesture.
+*   Returns - SpeedReturn: integer of value 1-7 that represents the speed. 1 is 
+*             fastest, 7 is slowest.   
+*******************************************************************************/
 int ZxReadSpeed(){
     GestureSpeed = ZXGesture_ReadByte(0x05);    // Read from the GSPEED register, last gesture speed
-    return GestureSpeed;
+    if(GestureSpeed>=1 && GestureSpeed<=5) SpeedReturn=1;
+    if(GestureSpeed>=6 && GestureSpeed<=10) SpeedReturn=2;
+    if(GestureSpeed>=11 && GestureSpeed<=15) SpeedReturn=3;
+    if(GestureSpeed>=16 && GestureSpeed<=20) SpeedReturn=4;
+    if(GestureSpeed>=21 && GestureSpeed<=25) SpeedReturn=5;
+    if(GestureSpeed>=26 && GestureSpeed<=30) SpeedReturn=6;
+    if(GestureSpeed>=31) SpeedReturn=7;
+    return SpeedReturn;
 }
 
+/*******************************************************************************
+* Function Name: int ChaserDelay(void)
+* Author: Clarence Zhen
+*   Purpose - Sets the delay of the LED chaser. 
+*******************************************************************************/
 int ChaserDelay(void){
-    switch(GestureSpeed){
-        case 1: 
-            return 500;
-        case 2:
-            return 450;
-        case 3:
-            return 400;
-        case 4:
-            return 350;
-        case 5:
-            return 300;
-        case 6:
-            return 250;
-        case 7:
-            return 200;
-        case 8:
-            return 150;
-        case 9:
-            return 100;
-        case 10:
-            return 50;
-    }
-    return 0;
-}
-
-
-void ZXGesture_Initialize(void)
-{
-    //0x01 - DRE
-    //00111111 - 0x3F - 
-    ZXGesture_WriteByte(DRE, 0x3F);
-    //0x02 - DRCFG - Data Ready Config
-    //10000001 - 0x81 - 
-    ZXGesture_WriteByte(DRCFG, 0x81);
+    return SpeedReturn*100;
 }
 
 void ZXGesture_WriteByte(char regAddr, char WRval)
@@ -129,9 +114,9 @@ void ZXGesture_WriteByte(char regAddr, char WRval)
 char ZXGesture_ReadByte(char regAddr)
 {
     //Reads a byte to the device
-    char data_read;
+    char data_read[1];
     write1I2C1(ZXADDR, regAddr);
     read1I2C1(ZXADDR, data_read);
-    return data_read;
+    return data_read[0];
 }
 

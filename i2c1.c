@@ -100,6 +100,7 @@ char getI2C1(char cAck2Send)
     I2C1CONbits.RCEN = 1;    
 	while (!I2C1STATbits.RBF);		//wait for receive to complete     
 	//read byte;
+
     cRcvByte = I2C1RCV;           
     
     //wait for idle condition before attempting ACK

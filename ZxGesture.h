@@ -8,11 +8,13 @@
 #define	ZXGESTURE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include "uart2.h"
+#include "i2c1.h"
+#include <string.h>
 
-void ZxAction(void);
 int ZxReadSpeed(void);
-int ChaserDelay(void);
-void ZXGesture_Initialize(void);
+void ZxAction(void);
+char ZX_XPos(void);
 char ZXGesture_ReadByte(char regAddr);
 void ZXGesture_WriteByte(char regAddr, char WRval);
 

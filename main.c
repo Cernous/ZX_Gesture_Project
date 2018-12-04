@@ -11,7 +11,9 @@
 ***************************************************************************************/ 
 #include "mcc_generated_files/mcc.h"
 #include "ZxGesture.h"
+#include "i2c1.h"
 #include "uart2.h"
+#define FCY     16000000
 int main(void)
 {
     SYSTEM_Initialize();          // initialize the device
@@ -19,8 +21,9 @@ int main(void)
     I2C1_Initialize(400);
     while (1)
     {
-        ZxGesture();
-       // ZxAction(); 
+        __delay32(FCY/10);
+        ZX_XPos();
+        ZxAction(); 
     }
     return -1;
 }

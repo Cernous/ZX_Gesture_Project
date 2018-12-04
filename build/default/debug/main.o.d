@@ -1,4 +1,4 @@
-build/default/production/main.o:  \
+build/default/debug/main.o:  \
 main.c  \
 mcc_generated_files/mcc.h  \
  mcc_generated_files/pin_manager.h  \

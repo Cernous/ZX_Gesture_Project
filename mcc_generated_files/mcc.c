@@ -72,8 +72,7 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
 }
 
-void OSCILLATOR_Initialize(void)
-{
+void OSCILLATOR_Initialize(void){
     // NOSC FRCPLL; SOSCEN disabled; OSWEN Switch is Complete; 
     __builtin_write_OSCCONL((uint8_t) (0x0100 & 0x00FF));
     // RCDIV FRC/1; DOZE 1:8; DOZEN disabled; ROI disabled; 
