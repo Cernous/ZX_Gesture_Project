@@ -1,22 +1,26 @@
 
 /****************************************************************************************
 * File: ZxGesture.c
-*   Description -   
+*   Description -   contains all the functions used to control the sensor and interpret 
+*                   the values. This file was used to read the gestures and the speed, and 
+*                   also to change the state depending on the gesture detected.
 *
 * Version   Author          Date            Details
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 1.0.0     Emily Cvejic    11/27/2018      Created the file.
 * 1.0.1     Emily Cvejic    11/28/2018      Worked on functions ZxGesture, ZxAction, 
 *                                           ZxReadSpeed and ChaserDelay. 
-* 1.0.2     ------------    12/3/2018       Broke system
+* 1.0.2     ____________    12/3/2018       Broke system
 * 1.0.3     ____________    12/4/2018       Fixed hardware component blocking system. 
- *                                          receiving correct values. Displaying speed and delay
+*                                           Receiving correct values. Displaying speed and delay
+* 1.0.4     Emily Cvejic    12/7/2018       Commented code and added macros
 ***************************************************************************************/ 
 #include "ZxGesture.h"
 #define ZXADDR  (0x20)
 #define DRCFG   (0x02)
 #define DRE     (0x01)
 #define GESTURE (0x04)
+#define GSPEED  (0x05)
 #define STATUS  (0x00)
 #define MULTIPLIER  (20)
 #define FCY     16000000
@@ -37,22 +41,29 @@ char ZX_XPos(void){
 * Function Name: void ZxAction(void)
 * Author: Emily Cvejic 
 *   Purpose - Prints to the serial terminal a message based on the gesture read.
-*             The message includes the speed and the delay of the chaser.  
+*             The message includes the speed and the delay of the chaser. 
+*           ZX_IDLE:        State that does not do anything, goes there when the 
+*                           gesture value is 0x00, meaning no gesture detected
+*           ZX_R_SWIPE:     State for the right swipe. Sets the direction to 2,
+*                           prints to the serial terminal.
+*           ZX_L_SWIPE:     State for the left swipe. Sets the direction to 1, 
+*                           prints to the serial terminal.
+*           ZX_UP_SWIPE:    State for the up swipe. Sets the direction to 3.
 *******************************************************************************/
 void ZxAction(void){
     switch(Gesture){
         case ZX_IDLE: 
-            //outString("No Action Detected \r");
+            //outString("No Action Detected \r");       // Did not implement this 
             break;
         case ZX_R_SWIPE:
-            Direction = 2;
-            Speed=ZxReadSpeed();
-            Delay=ChaserDelay();
+            Direction = 2;                              // Direction set to 2, for the chaser
+            Speed=ZxReadSpeed();                        // Read and record the speed
+            Delay=ChaserDelay();                        // Record the delay by ChaserDelay() function
             sprintf(buffer,"Right Swipe Detected    Speed Value: %d    Delay Chaser: %d ms\n\r", Speed, Delay);
             outString(buffer);
             break; 
         case ZX_L_SWIPE:
-            Direction = 1;
+            Direction = 1;      
             Speed=ZxReadSpeed();
             Delay=ChaserDelay();
             sprintf(buffer,"Left Swipe Detected     Speed Value: %d    Delay Chaser: %d ms\n\r", Speed, Delay);
@@ -89,20 +100,20 @@ void ZxAction(void){
 *             slowest, 1 is fastest.   
 *******************************************************************************/
 int ZxReadSpeed(){
-    GestureSpeed = ZXGesture_ReadByte(0x05);    // Read from the GSPEED register, last gesture speed
-    if(GestureSpeed>=1 && GestureSpeed<=5) SpeedReturn=1;
-    if(GestureSpeed>=6 && GestureSpeed<=10) SpeedReturn=2;
+    GestureSpeed = ZXGesture_ReadByte(GSPEED);    // Read from the GSPEED register, last gesture speed
+    if(GestureSpeed>=1  && GestureSpeed<=5)  SpeedReturn=1;
+    if(GestureSpeed>=6  && GestureSpeed<=10) SpeedReturn=2;
     if(GestureSpeed>=11 && GestureSpeed<=15) SpeedReturn=3;
     if(GestureSpeed>=16 && GestureSpeed<=20) SpeedReturn=4;
     if(GestureSpeed>=21 && GestureSpeed<=25) SpeedReturn=5;
     if(GestureSpeed>=26 && GestureSpeed<=30) SpeedReturn=6;
-    if(GestureSpeed>=31) SpeedReturn=7;
+    if(GestureSpeed>=31)                     SpeedReturn=7;
     return SpeedReturn;
 }
 
 /*******************************************************************************
 * Function Name: int ChaserDelay(void)
-* Author: Clarence Zhen
+* Author: Clarence Zhen & Emily Cvejic
 *   Purpose - Sets the delay of the LED chaser. 
 *******************************************************************************/
 int ChaserDelay(void){
