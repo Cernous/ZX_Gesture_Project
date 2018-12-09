@@ -1,8 +1,8 @@
 /* 
  * File:   LEDChaser.h
- * Author: CST
- *
- * Created on December 4, 2018, 2:45 PM
+ * Author: Clarence Zhen
+ * Header file for the LEDChaser
+ * Created on December 4, 2018
  */
 
 #ifndef LEDCHASER_H
@@ -10,6 +10,7 @@
 #include <xc.h> 
 #include "ZxGesture.h"
 
+void initLEDs(void);
 void LEDChaser(int delay, int direction);
 
 #endif	/* LEDCHASER_H */
