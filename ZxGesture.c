@@ -14,25 +14,37 @@
 * 1.0.3     ____________    12/4/2018       Fixed hardware component blocking system. 
 *                                           Receiving correct values. Displaying speed and delay
 * 1.0.4     Emily Cvejic    12/7/2018       Commented code and added macros
+* 1.0.5     Clarence Zhen   12/8/2018       Commented Code
 ***************************************************************************************/ 
 #include "ZxGesture.h"
+
+/* Register and Address Macros */
 #define ZXADDR  (0x20)
 #define DRCFG   (0x02)
 #define DRE     (0x01)
 #define GESTURE (0x04)
 #define GSPEED  (0x05)
 #define STATUS  (0x00)
+/* Macros */
 #define MULTIPLIER  (20)
-#define FCY     16000000
+#define FCY         (16000000)
 
+/* Local Variables */
 static enum {ZX_IDLE=0, ZX_R_SWIPE, ZX_L_SWIPE, ZX_UP_SWIPE, ZX_HOVER, ZX_HL, ZX_HR, ZX_HU};
 static int GestureSpeed, Speed, SpeedReturn;
 static unsigned char Gesture = ZX_IDLE;
-char buffer[50];
+static char buffer[50];
+/* Global Variables */
 extern int Delay;
 extern char Direction;
 
-char ZX_XPos(void){
+/*******************************************************************************
+* Function Name: char ZX_ReadGesture(void)
+* Author: Clarence Zhen 
+*   Purpose - Reads from GESTURE Register of the ZX Gesture Sensor and returns
+*             a byte value that is specific to the last used gesture.
+*******************************************************************************/
+char ZX_ReadGesture(void){
     Gesture = ZXGesture_ReadByte(GESTURE);
     return Gesture;
 }
@@ -120,6 +132,12 @@ int ChaserDelay(void){
     return SpeedReturn*MULTIPLIER;
 }
 
+/*******************************************************************************
+* Function Name: void ZX_Gesture_WriteByte(char regAddr, char WRval)
+* Author: Clarence Zhen 
+*   Purpose - An I2C Write function specific to the ZX Gesture Sensor.
+*             Writes a byte to the selected register of the I2C device.
+*******************************************************************************/
 void ZXGesture_WriteByte(char regAddr, char WRval)
 {
     //Writes a byte to the device
@@ -129,6 +147,12 @@ void ZXGesture_WriteByte(char regAddr, char WRval)
     writeNI2C1(ZXADDR, data_write, 2);
 }
 
+/*******************************************************************************
+* Function Name: void ZX_Gesture_WriteByte(char regAddr, char WRval)
+* Author: Clarence Zhen 
+*   Purpose - An I2C Read function specific to the ZX Gesture Sensor.
+*             Reads a byte from the selected register of the I2C device.
+*******************************************************************************/
 char ZXGesture_ReadByte(char regAddr)
 {
     //Reads a byte to the device
