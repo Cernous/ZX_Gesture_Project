@@ -7,7 +7,7 @@
 * Version           Date                  Details
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * 1.0.0             11/26/2018            Created the file.
-*
+* 1.0.1             12/8/2018             Added Comments
 ***************************************************************************************/ 
 #include "mcc_generated_files/mcc.h"
 #include "ZxGesture.h"
@@ -24,10 +24,10 @@ int main(void)
     initLEDs();
     while (1)
     {
-        __delay32(FCY/10);
-        ZX_XPos();
-        ZxAction(); 
-        LEDChaser(Delay,Direction);
+        __delay32(FCY/10);          // delay of 100 milliseconds
+        ZX_XPos();                  // Obtain the gesture
+        ZxAction();                 // Pass values global variables
+        LEDChaser(Delay,Direction); // Move the LED chaser depending on the gesture
     }
     return -1;
 }
