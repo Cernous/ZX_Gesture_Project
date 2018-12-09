@@ -13,19 +13,23 @@
 #include "ZxGesture.h"
 #include "i2c1.h"
 #include "uart2.h"
+
+/* Macros */
 #define FCY     16000000
+/* Global Variables */
 int Delay;
 char Direction;
+
 int main(void)
 {
     SYSTEM_Initialize();          // initialize the device
-    UART2_Initialize(); 
-    I2C1_Initialize(400);
+    UART2_Initialize();
+    I2C1_Initialize(400);         // initialize PIC24 device's I2C module to 400kHz
     initLEDs();
     while (1)
     {
-        __delay32(FCY/10);          // delay of 100 milliseconds
-        ZX_XPos();                  // Obtain the gesture
+        __delay32(FCY/10);          // Delay of 100 milliseconds
+        ZX_ReadGesture();           // Obtain the gesture
         ZxAction();                 // Pass values global variables
         LEDChaser(Delay,Direction); // Move the LED chaser depending on the gesture
     }
