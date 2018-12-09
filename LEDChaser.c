@@ -1,3 +1,14 @@
+/****************************************************************************************
+* File: LEDChaser.c
+*   Description -   Contains functions necessary for a functioning LED chaser on the
+*                   Explorer 16 Development Board.
+*
+* Version   Author          Date            Details
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* 1.0.0     Clarence Zhen    12/4/2018      Created the file.
+* 1.0.1     Clarence Zhen    12/8/2018      Commented Code.
+****************************************************************************************/
+
 #include "LEDChaser.h"
 
 /* Macros */
