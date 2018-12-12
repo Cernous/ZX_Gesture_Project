@@ -148,7 +148,7 @@ void ZXGesture_WriteByte(char regAddr, char WRval)
 }
 
 /*******************************************************************************
-* Function Name: void ZX_Gesture_WriteByte(char regAddr, char WRval)
+* Function Name: void ZX_Gesture_ReadByte(char regAddr, char WRval)
 * Author: Clarence Zhen 
 *   Purpose - An I2C Read function specific to the ZX Gesture Sensor.
 *             Reads a byte from the selected register of the I2C device.
