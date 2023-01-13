@@ -31,6 +31,8 @@ void initLEDs(void){
     LATA = 0b00000001;                                  // Initial State of the LED chaser
 }
 
+//Random Comment
+
 /*******************************************************************************
 * Function Name: void LEDChaser(int delay, int direction)
 * Author: Clarence Zhen 
